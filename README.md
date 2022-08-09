@@ -8,7 +8,7 @@ custom endpoint; and a bit of custom template logic, we can output a serverside 
 Using this setup, WordPress can leverage HTML over the wire solutions such as HTMX.
 
 HTMX then allows us to do dynamic serverside based rendering; live search and other features without the overhead and
-complexity of reactive JavaScript frameworks, whilst benefiting from trusted object and full page caching solutions.
+complexity of reactive JavaScript frameworks, whilst benefiting from trusted object and full page caching solutions. This repository is exploring the opportunities.
 
 ## Demo
 
