@@ -14,19 +14,21 @@ Domain Path:  /languages
 
 namespace HTMXPress;
 
-require_once( __DIR__ . '/inc/assets.php');
-require_once( __DIR__ . '/inc/endpoint.php');
-require_once( __DIR__ . '/inc/template.php');
+require_once( __DIR__ . '/inc/assets.php' );
+require_once( __DIR__ . '/inc/endpoint.php' );
+require_once( __DIR__ . '/inc/template.php' );
 
 function activate() {
 	Endpoint\register();
 	flush_rewrite_rules();
 }
+
 register_activation_hook( __FILE__, __NAMESPACE__ . '\\activate' );
 
 function deactivate() {
 	flush_rewrite_rules();
 }
+
 register_deactivation_hook( __FILE__, __NAMESPACE__ . '\\deactivate' );
 
 function bootstrap() {
@@ -34,4 +36,5 @@ function bootstrap() {
 	Template\bootstrap();
 	Assets\bootstrap();
 }
+
 add_action( 'init', __NAMESPACE__ . '\\bootstrap' );

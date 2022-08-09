@@ -1,4 +1,5 @@
 <?php
+
 namespace HTMXPress\Endpoint;
 
 const HTMX_ENDPOINT = 'htmx';

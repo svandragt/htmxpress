@@ -29,17 +29,18 @@ function get_template_name() : string {
 }
 
 function load_template_or_404( $template_name ) {
-	$path = dirname(dirname( __FILE__ ) ). "/templates/${template_name}.php";
+	$path = dirname( dirname( __FILE__ ) ) . "/templates/${template_name}.php";
 	global $wp_query;
 	if ( ! file_exists( $path ) ) {
 		$wp_query->set_404();
 		status_header( 404 );
+
 		return '404';
 	} else {
 		$is_partial = str_starts_with( $template_name, 'partial-' );
-		if ($is_partial) {
+		if ( $is_partial ) {
 			return include $path;
 		}
-		load_template( $path);
+		load_template( $path );
 	}
 }
