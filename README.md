@@ -1,5 +1,5 @@
-# HTMX for WordPress
-
+# HTMXpress
+HTMX for WordPress
 
 ## Demo
 
