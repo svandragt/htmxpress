@@ -2,6 +2,14 @@
 
 [HTMX](https://htmx.org/) for WordPress!
 
+By using the [Rewrite Endpoints API](https://make.wordpress.org/plugins/2012/06/07/rewrite-endpoints-api/) to create a
+custom endpoint; and a bit of custom template logic, we can output a serverside partial or custom theme template.
+
+Using this setup, WordPress can leverage HTML over the wire solutions such as HTMX.
+
+HTMX then allows us to do dynamic serverside based rendering; live search and other features without the overhead and
+complexity of reactive JavaScript frameworks, whilst benefiting from trusted object and full page caching solutions.
+
 ## Demo
 
 1. Activate plugin.
