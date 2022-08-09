@@ -1,5 +1,5 @@
 # HTMXpress
-HTMX for WordPress
+[HTMX](https://htmx.org/) for WordPress!
 
 ## Demo
 
