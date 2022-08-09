@@ -5,8 +5,8 @@ HTMX for WordPress
 
 1. Activate plugin.
 2. go to `/htmx` (Endpoint test)
-3. go to `/htmx/ascii` (template loader test)
-4. Inspect html source of theme (script load test)
+3. go to `/htmx/ascii` and `/html/partial-ascii` (template loader test)
+4. Inspect html source of theme (enqueued script test)
 5. go to `/htmx/demo`
 
 
