@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name:  HTMX
+Plugin Name:  HTMXpress
 Plugin URI:   https://vandragt.com
 Description:  HTMX for WordPress
 Version:      1.0
@@ -12,7 +12,7 @@ Text Domain:  htmx
 Domain Path:  /languages
 */
 
-namespace HTMX;
+namespace HTMXPress;
 
 require_once( __DIR__ . '/inc/assets.php');
 require_once( __DIR__ . '/inc/endpoint.php');

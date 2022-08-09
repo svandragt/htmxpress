@@ -12,4 +12,3 @@ HTMX for WordPress
 
 ## Screencast of Demo
 https://user-images.githubusercontent.com/594871/183612860-b2eb29f7-cfa0-4de1-97fc-b2a5f393cfd2.mp4
-

@@ -1,6 +1,6 @@
 <?php
 
-namespace HTMX\Assets;
+namespace HTMXPress\Assets;
 
 function bootstrap() {
 	add_action( 'wp_enqueue_scripts', __NAMESPACE__.'\\register' );
