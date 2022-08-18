@@ -18,6 +18,14 @@ complexity of reactive JavaScript frameworks, whilst benefiting from trusted obj
 4. Inspect html source of theme (enqueued script test)
 5. go to `/htmx/demo`
 
+What else can you do?
+
+- CSS Transitions https://htmx.org/docs/#css_transitions
+- Boosting https://htmx.org/docs/#boosting
+- Polling + Server side events
+- Progressbars (eg serverside file upload processing) https://htmx.org/examples/progress-bar/
+- More examples https://htmx.org/examples/
+
 ## Screencast of Demo
 
 https://user-images.githubusercontent.com/594871/183612860-b2eb29f7-cfa0-4de1-97fc-b2a5f393cfd2.mp4

@@ -13,6 +13,12 @@ function render() {
 	if ( ! isset( $wp_query->query_vars[ HTMX_ENDPOINT ] ) ) {
 		return;
 	}
+
+	// POST nonce protection
+	if ( $_SERVER["REQUEST_METHOD"] === 'POST' && ! wp_verify_nonce( $_SERVER["HTTP_X_CSRFTOKEN"], 'htmx' ) ) {
+		// die( 'security nope' );
+		return;
+	}
 	$template_name = get_template_name();
 	load_template_or_404( $template_name );
 	exit;
