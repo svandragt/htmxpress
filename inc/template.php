@@ -15,7 +15,7 @@ function render() {
 	}
 
 	// POST nonce protection
-	if ( $_SERVER["REQUEST_METHOD"] === 'POST' && ! wp_verify_nonce( $_SERVER["HTTP_X_CSRFTOKEN"], 'htmx' ) ) {
+	if ( $_SERVER["REQUEST_METHOD"] === 'POST' && ! wp_verify_nonce( $_SERVER["X_WP_NONCE"], 'htmx' ) ) {
 		// die( 'security nope' );
 		return;
 	}
