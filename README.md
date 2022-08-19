@@ -29,3 +29,21 @@ What else can you do?
 ## Screencast of Demo
 
 https://user-images.githubusercontent.com/594871/183612860-b2eb29f7-cfa0-4de1-97fc-b2a5f393cfd2.mp4
+
+# Project use
+
+1. While the CDN approach is extremely simple, you may want
+   to [consider not using CDNs in production](https://blog.wesleyac.com/posts/why-not-javascript-cdn): Here's how to
+   manage your copy locally in your theme:
+
+```php
+# mytheme/functions.php
+const PRIORITY_AFTER_HTMX = 20;
+add_action( 'wp_enqueue_scripts', function() {
+    wp_dequeue_script( 'htmx');
+    wp_enqueue_script( 'htmx', trailingslashit( dir_name( __FILE__ ) ) . 'third-party/htmx.min.js', '1.8.0' );
+}, PRIORITY_AFTER_HTMX );
+```
+
+Download a [minified copy of htmx](https://unpkg.com/htmx.org/dist/htmx.min.js) and put it into
+the `mytheme/third-party/` folder so WordPress can find it, updating the version number.
