@@ -41,9 +41,20 @@ https://user-images.githubusercontent.com/594871/183612860-b2eb29f7-cfa0-4de1-97
 const PRIORITY_AFTER_HTMX = 20;
 add_action( 'wp_enqueue_scripts', function() {
     wp_dequeue_script( 'htmx');
-    wp_enqueue_script( 'htmx', trailingslashit( dir_name( __FILE__ ) ) . 'third-party/htmx.min.js', '1.8.0' );
+    wp_enqueue_script( 'htmx', trailingslashit( dirname( __FILE__ ) ) . 'third-party/htmx.min.js', '1.8.0' );
 }, PRIORITY_AFTER_HTMX );
 ```
 
 Download a [minified copy of htmx](https://unpkg.com/htmx.org/dist/htmx.min.js) and put it into
 the `mytheme/third-party/` folder so WordPress can find it, updating the version number.
+
+2. Replace the template path to point to your site's templates:
+
+```php
+# mytheme/functions.php
+add_filter('htmx.template_path', function() {
+    return  trailingslashit( dirname( __FILE__ ) ) . 'templates/';
+});
+
+# A template mytheme/templates/example.php will then be loaded from `/htmx/example`
+```

@@ -34,18 +34,21 @@ function get_template_name() : string {
 	return $template_name;
 }
 
-function load_template_or_404( $template_name ) {
-	$path = dirname( dirname( __FILE__ ) ) . "/templates/${template_name}.php";
+function load_template_or_404( string $template_name ) : void {
+	$path = trailingslashit( apply_filters( 'htmx.template_path', dirname( __FILE__, 2 ) . "/templates/" ) );
+	$path = "$path${template_name}.php";
 	global $wp_query;
 	if ( ! file_exists( $path ) ) {
 		$wp_query->set_404();
 		status_header( 404 );
 
-		return '404';
+		return;
 	} else {
 		$is_partial = str_starts_with( $template_name, 'partial-' );
 		if ( $is_partial ) {
-			return include $path;
+			include $path;
+
+			return;
 		}
 		load_template( $path );
 	}
