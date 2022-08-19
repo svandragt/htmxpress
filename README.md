@@ -8,7 +8,8 @@ custom endpoint; and a bit of custom template logic, we can output a serverside 
 Using this setup, WordPress can leverage HTML over the wire solutions such as HTMX.
 
 HTMX then allows us to do dynamic serverside based rendering; live search and other features without the overhead and
-complexity of reactive JavaScript frameworks, whilst benefiting from trusted object and full page caching solutions. This repository is exploring the opportunities.
+complexity of reactive JavaScript frameworks, whilst benefiting from trusted object and full page caching solutions.
+This repository is exploring the opportunities.
 
 ## Demo
 
@@ -22,7 +23,7 @@ What else can you do?
 
 - CSS Transitions https://htmx.org/docs/#css_transitions
 - Boosting https://htmx.org/docs/#boosting
-- Polling + Server side events
+- Polling + Server Sent Events https://htmx.org/docs/#sse
 - Progressbars (eg serverside file upload processing) https://htmx.org/examples/progress-bar/
 - More examples https://htmx.org/examples/
 
@@ -53,7 +54,7 @@ the `mytheme/third-party/` folder so WordPress can find it, updating the version
 ```php
 # mytheme/functions.php
 add_filter('htmx.template_path', function() {
-    return  trailingslashit( dirname( __FILE__ ) ) . 'templates/';
+    return trailingslashit( dirname( __FILE__ ) ) . 'templates/';
 });
 
 # A template mytheme/templates/example.php will then be loaded from `/htmx/example`
