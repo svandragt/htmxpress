@@ -33,9 +33,12 @@ https://user-images.githubusercontent.com/594871/183612860-b2eb29f7-cfa0-4de1-97
 
 # Project use
 
-By default HTMX is loaded from an external CDN. While the CDN approach is extremely simple, you may want
-   to [consider not using CDNs in production](https://blog.wesleyac.com/posts/why-not-javascript-cdn): Here's how to
-   manage your copy locally in your theme (replacing the version number as needed):
+
+
+1. __By default HTMX is loaded from an external CDN__. While the CDN approach is extremely simple, you may want
+   to [consider not using CDNs in production](https://blog.wesleyac.com/posts/why-not-javascript-cdn): Download a 
+   [minified copy of htmx](https://unpkg.com/htmx.org/dist/htmx.min.js) and put it into
+the `mytheme/third-party/` folder so WordPress can find it, updating the version number.
 
 ```php
 # mytheme/functions.php
@@ -46,10 +49,8 @@ add_action( 'wp_enqueue_scripts', function() {
 }, PRIORITY_AFTER_HTMX );
 ```
 
-Download a [minified copy of htmx](https://unpkg.com/htmx.org/dist/htmx.min.js) and put it into
-the `mytheme/third-party/` folder so WordPress can find it, updating the version number.
 
-2. Replace the template path to point to your site's templates:
+2. __Pointing the htmx template path to your own templates__: Here's how to replace the template path to point to your site's templates:
 
 ```php
 # mytheme/functions.php
@@ -57,5 +58,5 @@ add_filter('htmx.template_path', function() {
     return trailingslashit( dirname( __FILE__ ) ) . 'templates/';
 });
 
-# A template mytheme/templates/example.php will then be loaded from `/htmx/example`
+# A template mytheme/templates/example.php will then be matched from `/htmx/example`
 ```
