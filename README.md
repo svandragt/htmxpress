@@ -33,9 +33,9 @@ https://user-images.githubusercontent.com/594871/183612860-b2eb29f7-cfa0-4de1-97
 
 # Project use
 
-1. While the CDN approach is extremely simple, you may want
+By default HTMX is loaded from an external CDN. While the CDN approach is extremely simple, you may want
    to [consider not using CDNs in production](https://blog.wesleyac.com/posts/why-not-javascript-cdn): Here's how to
-   manage your copy locally in your theme:
+   manage your copy locally in your theme (replacing the version number as needed):
 
 ```php
 # mytheme/functions.php
