@@ -1,8 +1,8 @@
 <?php
 
-namespace HTMXPress\Template;
+namespace HtmxPress\Template;
 
-use const HTMXpress\Endpoint\HTMX_ENDPOINT;
+use const HtmxPress\Endpoint\HTMX_ENDPOINT;
 
 function bootstrap() {
 	add_action( 'template_redirect', __NAMESPACE__ . '\\render' );

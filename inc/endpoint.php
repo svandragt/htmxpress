@@ -1,6 +1,6 @@
 <?php
 
-namespace HTMXPress\Endpoint;
+namespace HtmxPress\Endpoint;
 
 const HTMX_ENDPOINT = 'htmx';
 
