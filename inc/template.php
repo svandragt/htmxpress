@@ -15,13 +15,31 @@ function render() {
 	}
 
 	// POST nonce protection
-	if ( $_SERVER["REQUEST_METHOD"] === 'POST' && ! wp_verify_nonce( $_SERVER["HTTP_X_WP_NONCE"], 'htmx' ) ) {
-		// die( 'security nope' );
+	if ( $_SERVER["REQUEST_METHOD"] === 'POST' && ! is_nonced() ) {
 		return;
 	}
 	$template_name = get_template_name();
 	load_template_or_404( $template_name );
 	exit;
+}
+
+function is_nonced() : bool {
+	$nonce = null;
+
+	if ( isset( $_REQUEST['_wpnonce'] ) ) {
+		$nonce = $_REQUEST['_wpnonce'];
+	} elseif ( isset( $_SERVER['HTTP_X_WP_NONCE'] ) ) {
+		$nonce = $_SERVER['HTTP_X_WP_NONCE'];
+	}
+
+	if ( null === $nonce ) {
+		// No nonce at all, so act as if it's an unauthenticated request.
+		wp_set_current_user( 0 );
+		return false;
+	}
+
+	// Check the nonce is not false.
+	return !! wp_verify_nonce( $nonce, 'htmx' );
 }
 
 function get_template_name() : string {
