@@ -13,7 +13,7 @@ This repository is exploring the opportunities.
 
 ## Demo
 
-1. Activate plugin.
+1. Activate plugin (or run `wp-env start` to spin up a WP environment with the plugin activated).
 2. go to `/htmx` (Endpoint test)
 3. go to `/htmx/ascii` and `/html/partial-ascii` (template loader test)
 4. Inspect html source of theme (enqueued script test)
