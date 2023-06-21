@@ -16,7 +16,7 @@ function register() {
 function add_post_nonce() {
 	$nonce = wp_create_nonce( 'htmx' );
 	$data = "window.onload = function() {document.body.addEventListener('htmx:configRequest', (event) => {
-        event.detail.headers['X-WP-Nonce'] = '$nonce';
+        event.detail.headers['HTTP_X_WP_NONCE'] = '$nonce';
       })}";
 	wp_add_inline_script( 'htmx', $data );
 }
