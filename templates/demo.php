@@ -26,6 +26,7 @@ get_header(); ?>
             <h2>Live search in a few lines</h2>
             <input type="text" name="s"
                    hx-get="/htmx/live-search"
+                   hx-select="main"
                    hx-trigger="keyup delay:100ms changed"
                    hx-target="#search-results"
                    placeholder="Search..."/>
