@@ -33,8 +33,6 @@ https://user-images.githubusercontent.com/594871/183612860-b2eb29f7-cfa0-4de1-97
 
 # Project use
 
-
-
 1. __By default HTMX is loaded from an external CDN__. While the CDN approach is extremely simple, you may want
    to [consider not using CDNs in production](https://blog.wesleyac.com/posts/why-not-javascript-cdn): Download a 
    [minified copy of htmx](https://unpkg.com/htmx.org/dist/htmx.min.js) and put it into
@@ -62,3 +60,7 @@ add_filter( 'htmx.template_paths', static function ( $paths ) {
 
 # A template mytheme/templates/example.php will then be accessible from `/htmx/example`
 ```
+
+# See Also
+
+- [HTMXpress Serverside Block](https://github.com/svandragt/htmxpress-serverside-block/) A scaffolded serverside block HTMXpress implementation example.
