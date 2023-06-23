@@ -50,13 +50,15 @@ add_action( 'wp_enqueue_scripts', function() {
 ```
 
 
-2. __Pointing the htmx template path to your own templates__: Here's how to replace the template path to point to your site's templates:
+2. __Add your own templates to the htmx endpoint__: Here's how to add to the template paths to point to your site's templates:
 
 ```php
 # mytheme/functions.php
-add_filter('htmx.template_path', function() {
-    return trailingslashit( dirname( __FILE__ ) ) . 'templates/';
-});
+add_filter( 'htmx.template_paths', static function ( $paths ) {
+	$paths[] = __DIR__ . '/templates';
 
-# A template mytheme/templates/example.php will then be matched from `/htmx/example`
+	return $paths;
+} );
+
+# A template mytheme/templates/example.php will then be accessible from `/htmx/example`
 ```
