@@ -50,7 +50,7 @@ add_action( 'wp_enqueue_scripts', function() {
 ```
 
 
-2. __Add your own templates to the htmx endpoint__: Here's how to add to the template paths to point to your site's templates:
+2. __Add your own templates to the htmx endpoint__: Here's how to add to the template paths to point to your site's templates. The demo HTMXpress templates are only registered if the filter is unused:
 
 ```php
 # mytheme/functions.php
