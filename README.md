@@ -45,7 +45,7 @@ the `mytheme/third-party/` folder so WordPress can find it, updating the version
 const PRIORITY_AFTER_HTMX = 20;
 add_action( 'wp_enqueue_scripts', function() {
     wp_dequeue_script( 'htmx');
-    wp_enqueue_script( 'htmx', trailingslashit( dirname( __FILE__ ) ) . 'third-party/htmx.min.js', '1.8.0' );
+    wp_enqueue_script( 'htmx', trailingslashit( dirname( __FILE__ ) ) . 'third-party/htmx.min.js', '1.9.2' );
 }, PRIORITY_AFTER_HTMX );
 ```
 
