@@ -6,7 +6,7 @@ Description:  HTMX for WordPress
 Version:      0.1
 Author:       Sander van Dragt <sander@vandragt.com>
 Author URI:   https://vandragt.com
-License:      GPL2
+License:      GPL3
 License URI:  https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain:  htmxpress
 Domain Path:  /languages
