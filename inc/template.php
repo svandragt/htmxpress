@@ -1,14 +1,27 @@
 <?php
+/**
+ * Templating functions.
+ */
 
 namespace HtmxPress\Template;
 
 use const HtmxPress\Endpoint\HTMX_ENDPOINT;
 
-function bootstrap() {
+/**
+ * Bootstrap.
+ *
+ * @return void
+ */
+function bootstrap() : void {
 	add_action( 'template_redirect', __NAMESPACE__ . '\\render' );
 }
 
-function render() {
+/**
+ * Render a template.
+ *
+ * @return void
+ */
+function render() : void {
 	global $wp_query;
 	if ( ! isset( $wp_query->query_vars[ HTMX_ENDPOINT ] ) ) {
 		return;
@@ -43,6 +56,11 @@ function is_nonced() : bool {
 	return ! ! wp_verify_nonce( $nonce, 'htmx' );
 }
 
+/**
+ * Get the template name. Defaults to 'root' if no query var is set.
+ *
+ * @return string
+ */
 function get_template_name() : string {
 	$template_name = 'root';
 	$query_var = get_query_var( HTMX_ENDPOINT );
