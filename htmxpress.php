@@ -4,7 +4,7 @@
  * Plugin Name:  HTMXpress
  * Plugin URI:   https://vandragt.com
  * Description:  HTMX for WordPress
- * Version:      0.1
+ * Version:      0.1.1
  * Author:       Sander van Dragt <sander@vandragt.com>
  * Author URI:   https://vandragt.com
  * License:      GPL3
