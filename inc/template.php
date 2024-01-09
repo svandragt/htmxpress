@@ -61,9 +61,9 @@ function is_nonced() : bool {
 	$nonce = null;
 
 	if ( isset( $_REQUEST['_wpnonce'] ) ) {
-		$nonce = $_REQUEST['_wpnonce'];
+		$nonce = sanitize_text_field( wp_unslash( $_REQUEST['_wpnonce'] ) );
 	} elseif ( isset( $_SERVER['HTTP_X_WP_NONCE'] ) ) {
-		$nonce = $_SERVER['HTTP_X_WP_NONCE'];
+		$nonce = sanitize_text_field( wp_unslash( $_SERVER['HTTP_X_WP_NONCE'] ) );
 	}
 
 	if ( null === $nonce ) {
