@@ -10,6 +10,7 @@ function register() {
 	// CDN use for prototyping only
 	wp_enqueue_script( 'htmx', 'https://unpkg.com/htmx.org@1.9.3' );
 
+	wp_enqueue_script( 'htmx', 'https://unpkg.com/htmx.org@1.9.10', [], null, [ 'strategy' => 'defer'] );
 	add_post_nonce();
 }
 
