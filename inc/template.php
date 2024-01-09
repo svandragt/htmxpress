@@ -28,7 +28,7 @@ function render() : void {
 	}
 
 	// POST nonce protection
-	if ( $_SERVER["REQUEST_METHOD"] === 'POST' && ! is_nonced() ) {
+	if ( $_SERVER['REQUEST_METHOD'] === 'POST' && ! is_nonced() ) {
 		return;
 	}
 	$template_name = get_template_name();
