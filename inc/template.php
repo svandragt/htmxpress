@@ -32,10 +32,31 @@ function render() : void {
 		return;
 	}
 	$template_name = get_template_name();
-	load_template_or_404( $template_name );
+	$template_loaded = load_htmx_template( $template_name );
+	maybe_set_404( $template_loaded );
 	exit;
 }
 
+/**
+ * Set 404 status if the template wasn't loaded.
+ *
+ * @param bool $template_loaded Whether a template was loaded.
+ *
+ * @return void
+ */
+function maybe_set_404( bool $template_loaded ) : void {
+	global $wp_query;
+	if ( ! $template_loaded ) {
+		$wp_query->set_404();
+		status_header( 404 );
+	}
+}
+
+/**
+ * Check if the request is nonced.
+ *
+ * @return bool
+ */
 function is_nonced() : bool {
 	$nonce = null;
 
@@ -71,35 +92,32 @@ function get_template_name() : string {
 	return $template_name;
 }
 
-function load_template_or_404( string $template_name ) : void {
-	// Allow adding to the template paths, with the included demo ones as a fallback.
+/**
+ * Load a template or return 404 if it's not found. This is a copy of the WordPress `load_template` function, but with
+ * 404 handling.
+ *
+ * @param string $template_name Name of the template to load.
+ *
+ * @return bool Whether a template was loaded
+ */
+function load_htmx_template( string $template_name ) : bool {
+	// Allow adding to the template paths.
+	// phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores -- Established filter.
 	$paths = apply_filters( 'htmx.template_paths', [] );
-	if (empty($paths)) {
-		$paths[] = dirname( __FILE__, 2 ) . "/templates/";
-	}
 	array_walk( $paths, static function ( &$path ) {
 		$path = trailingslashit( $path );
 	} );
 
-	$match = false;
-	// match one path
+	// walk through the paths to find the first matching template.
+	$template_loaded = false;
 	foreach ( $paths as $path ) {
 		$path = "$path${template_name}.php";
 		if ( file_exists( $path ) ) {
-			$match = true;
-			$is_partial = str_starts_with( $template_name, 'partial-' );
-			if ( $is_partial ) {
-				include $path;
-				break;
-			}
+			$template_loaded = true;
 			load_template( $path );
 			break;
 		}
 	}
 
-	global $wp_query;
-	if ( ! $match ) {
-		$wp_query->set_404();
-		status_header( 404 );
-	}
+	return $template_loaded;
 }
