@@ -53,7 +53,7 @@ function is_nonced() : bool {
 	}
 
 	// Check the nonce is not false.
-	return ! ! wp_verify_nonce( $nonce, 'htmx' );
+	return (bool) wp_verify_nonce( $nonce, 'htmx' );
 }
 
 /**
