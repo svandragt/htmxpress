@@ -66,7 +66,7 @@ function load_template_or_404( string $template_name ) : void {
 	$match = false;
 	// match one path
 	foreach ( $paths as $path ) {
-		$path = "$path${template_name}.php";
+		$path = "$path{$template_name}.php";
 		if ( file_exists( $path ) ) {
 			$match = true;
 			$is_partial = str_starts_with( $template_name, 'partial-' );
