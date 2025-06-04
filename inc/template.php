@@ -28,7 +28,8 @@ function render() : void {
 	}
 
 	// POST nonce protection
-	if ( $_SERVER['REQUEST_METHOD'] === 'POST' && ! is_nonced() ) {
+	$request_method = strtoupper( sanitize_text_field( wp_unslash( $_SERVER['REQUEST_METHOD'] ) ) );
+	if ( $request_method === 'POST' && ! is_nonced() ) {
 		return;
 	}
 	$template_name = get_template_name();
