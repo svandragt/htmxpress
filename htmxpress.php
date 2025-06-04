@@ -15,21 +15,12 @@
 
 namespace HtmxPress;
 
+const OPTION_REWRITE_RULES = 'htmxpress_rewrite_rules';
+const OPTION_REWRITE_RULES_VERSION = '20250604';
+
 require_once( __DIR__ . '/inc/assets.php' );
 require_once( __DIR__ . '/inc/endpoint.php' );
 require_once( __DIR__ . '/inc/template.php' );
-
-/**
- * Activate the plugin.
- *
- * @return void
- */
-function activate() : void {
-	Endpoint\register();
-	flush_rewrite_rules();
-}
-
-register_activation_hook( __FILE__, __NAMESPACE__ . '\\activate' );
 
 /**
  * Deactivate the plugin.
@@ -37,6 +28,7 @@ register_activation_hook( __FILE__, __NAMESPACE__ . '\\activate' );
  * @return void
  */
 function deactivate() : void {
+	delete_option( OPTION_REWRITE_RULES );
 	flush_rewrite_rules();
 }
 
@@ -49,6 +41,10 @@ register_deactivation_hook( __FILE__, __NAMESPACE__ . '\\deactivate' );
  */
 function bootstrap() : void {
 	Endpoint\register();
+	if ( update_option( OPTION_REWRITE_RULES, OPTION_REWRITE_RULES_VERSION ) ) {
+		flush_rewrite_rules();
+	}
+
 	Template\bootstrap();
 	Assets\bootstrap();
 }
