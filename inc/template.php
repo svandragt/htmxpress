@@ -111,7 +111,7 @@ function load_htmx_template( string $template_name ) : bool {
 	// walk through the paths to find the first matching template.
 	$template_loaded = false;
 	foreach ( $paths as $path ) {
-		$path = "$path${template_name}.php";
+		$path .= $template_name . ".php";
 		if ( file_exists( $path ) ) {
 			$template_loaded = true;
 			load_template( $path );
