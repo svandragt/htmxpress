@@ -104,6 +104,11 @@ function load_htmx_template( string $template_name ) : bool {
 	// Allow adding to the template paths.
 	// phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores -- Established filter.
 	$paths = apply_filters( 'htmx.template_paths', [] );
+
+	if ( empty( $paths ) ) {
+		// Demo template registration
+		$paths[] = dirname( __FILE__, 2 ) . "/templates/";
+	}
 	array_walk( $paths, static function ( &$path ) {
 		$path = trailingslashit( $path );
 	} );
