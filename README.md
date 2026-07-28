@@ -31,6 +31,16 @@ What else can you do?
 
 https://user-images.githubusercontent.com/594871/183612860-b2eb29f7-cfa0-4de1-97fc-b2a5f393cfd2.mp4
 
+## Composer install
+
+Requires PHP >= 8.0. For `composer.json`-based WordPress projects, install HTMXpress as a VCS dependency:
+
+```shell
+composer config repositories.htmxpress vcs git@github.com:svandragt/htmxpress.git
+composer require svandragt/htmxpress:dev-main --no-update
+composer update svandragt/htmxpress --prefer-source
+```
+
 # Project use
 
 1. __By default HTMX is loaded from an external CDN__. While the CDN approach is extremely simple, you may want
